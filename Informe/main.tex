@@ -1,0 +1,52 @@
+\documentclass[10pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}		% Configuro la codificación
+\input{config.tex}				% Archivo con los comandos globales como Título y autores
+\input{preamble.tex}
+\input{aux_functions.tex}		% Se proveen un conjunto de funciones extras
+
+% Defino el path de los includegraphics
+\graphicspath{{./Figuras/}}		% Directorio que contiene los graficos
+
+% Defino el path para los input de .tex y de .eps
+\makeatletter
+\def\input@path{{./Figuras/}{./Secciones/}{./Cover_page/}{../Octave/graficos/}}
+\makeatother
+
+% Defino el path del listings
+\ifListings
+%% Cambiar el nombre de la carpeta si se utilizan Listings
+	\lstinputpath{{../Octave/}}
+\fi
+
+\definecolor{myred}{rgb}{0.5,0,0}
+\definecolor{mygreen}{rgb}{0,0.5,0}
+
+
+
+\begin{document}
+		% Carátula (formal o simple,_formal o _simple respectivamente) con Resumen
+		% incluido e Índice (si es necesario configurar en config.tex) del informe
+		\input{cover_formal.tex}
+	\setcounter{page}{1}
+
+		%\section{Polarización}\label{sec:pol}
+			\input{1_polarizacion.tex}
+		%\section{Variación de la carga}\label{sec:variacion_carga}
+			\input{2_variacion_carga.tex}
+		%\section{Estudio de componentes}\label{sec:componentes}
+			\input{3_componentes.tex}
+		%\section{Variación del ciclo de trabajo}\label{sec:duty_cycle}
+			\input{4_duty_cycle.tex}
+		%\section{Valor del capacitor}\label{sec:C3}
+			\input{5_C3.tex}
+		%\section{Características de capacitores}\label{sec:caps}
+			\input{6_caps.tex}
+		%\section{Controlador}\label{sec:controlador}
+			\input{7_controlador.tex}
+		%\section{Protección}
+			\input{8_proteccion.tex}
+		%\section{Conclusiones}\label{sec:conclusiones}
+			\input{9_conclusiones.tex}
+	% \appendix
+\end{document}
