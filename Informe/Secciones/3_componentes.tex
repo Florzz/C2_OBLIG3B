@@ -1,2 +1,45 @@
 \begin{quote} \textit{3) En base al estudio del ítem anterior verificar si los semiconductores sobrevivirán el estrés del régimen transitorio y la operación en régimen permanente. O sea, determinar si los semiconductores $M_1$, $D_1$ a $D_7$ son adecuados para este diseño, justificar y en caso de que alguno o algunos no lo sean, encontrar un sustituto que sí. Justificar este estudio en las características publicadas por los fabricantes de los semiconductores. }
 \end{quote}
+
+	Los componentes $D_3$ a $D_6$ (\texttt{1N4007}) son de propósito general y soportan hasta $\SI{1}{\ampere}$ y \SI{1000}{\volt}. Estos diodos son parte del rectificador, por lo que resultan adecuados para el diseño propuesto.
+
+
+	Los diodos $D_1$ y $D_2$ deben soportar las siguientes corrientes
+
+	\begin{align*}
+		\centering
+		I_{S1} &= \frac{\SI{25}{\volt}}{\SI{6}{\ohm}} \simeq \SI{4.17}{\ampere} \\
+		I_{S2} &= \frac{\SI{11}{\volt}}{\SI{1.25}{\ohm}} \simeq \SI{8.8}{\ampere} 
+	\end{align*}
+
+	Según la hoja de datos del \texttt{1N5811}, la corriente máxima de operación es \SI{6}{\ampere}, por lo que dicho modelo resulta adecuado para $D_1$, pero no para $D_2$. Se debe entrontrar un reemplazo que soporte una corriente mayor a \SI{9}{\ampere}. 	Buscando en hojas de datos, se encontró el modelo \texttt{1N5825} que soporta hasta \SI{15}{\ampere}.
+\Flor{El original era Fast recovery, pero el reemplazo no. No encontré uno Fast que soporte más que 6A}	
+
+
+	Con respecto al transistor MOSFET, se debe considerar la velocidada de conmutación y corriente que debe manejar. Para este diseño, la frecuencia de conmutación es de $\SI{100}{\kilo\hertz} \implies t_{on} = t_{off} = t = \SI{5}{\micro\second}$. A partir de la hoja de datos del \texttt{MTH5N100} se obtiene que 
+
+\begin{equation}
+	\centering
+	\left. \begin{array}{lc}
+		t_{rise} &= \SI{250}{\nano\second} \\
+		t_{fall} &= \SI{200}{\nano\second}
+	\end{array}	\right\} \implies 
+	\begin{array}{lc}
+		t_{rise} &= 20 \cdot t \\
+		t_{fall} &=  25 \cdot t
+	\end{array}
+\end{equation}
+
+	Por lo tanto la velocidad de conmutación de \texttt{MTH5N100} resulta adecuada para $f=\SI{100}{\kilo\hertz}$.
+
+	Para hallar la corriente máxima que debe soportar el transistor, se plantea la situación más crítica, cuando se alcanza la potencia máxima. Donde se obtiene la tensión de alimentación $V_{CC}$ mínima y el regulador opera al borde del modo continuo.
+
+\begin{equation}
+	\centering
+	I_{\textrm{1max}} = \frac{2 P_{\textrm{max,salida}}}{V_{\textrm{CC,min}} D_{\textrm{max}}} = \frac{ 2 \cdot \SI{24.8}{\volt} \cdot \SI{4.17}{\ampere} }{ \sqrt{2} \cdot \SI{110}{\volt} \cdot \num{0,5}  } = \boxed{\SI{2.7}{\ampere}}
+\end{equation}
+
+	Finalmente, la utilización del MOSFET \texttt{MTH5N100} resulta factible ya que la máxima corriente que es capaz de conducir es \SI{5}{\ampere}.	
+	
+	
+

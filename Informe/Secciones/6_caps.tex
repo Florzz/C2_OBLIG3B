@@ -1,14 +1,14 @@
 \begin{quote} \textit{6) Dimensionar todos los capacitores, o sea, tamaño, formato, tecnología, tolerancia, máxima potencia y/o tensión y temperatura, resistencia efectiva serie, frecuencia de operación máxima, tiempo de vida útil, etc.}
 \end{quote}
-
+\Flor{Creo que 120uF y 470uF vienen solo electroliticos, aunque son malos para alta frecuencia}
 \begin{table}[H]
 	\centering
 	\begin{tabular}{cccccccc}
 		\toprule
 		& Valor & $V_{max}$ & Tipo & ESR & tol. & vida útil &f \\
 		\midrule
-		$C_1$ & \SI{470}{\micro\farad} & & &  & 10\% & &  \\
-		$C_2$ &\SI{120}{\micro\farad} & & & & 10\% & &\\
+		$C_1$ & \SI{470}{\micro\farad} & \SI{25}{\volt} & electrolítico &  & 10\% & &  \\
+		$C_2$ &\SI{120}{\micro\farad} & \SI{16}{\volt} & electrolítico & & 10\% & &\\
 		$C$ &\SI{3300}{\micro\farad} & \SI{250}{\volt} & electrolítico & \SI{0.4}{\ohm} & 20\% &  2000hs a \SI{105}{\celsius} & \\
 		\bottomrule
 	\end{tabular}
