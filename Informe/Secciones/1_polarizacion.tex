@@ -3,13 +3,13 @@
 
 \HgraficarPNG{0.4}{fly}{Regulador \textit{Flyback} aislado.}{fig:cto}
 
-En la Figura \ref{fig:cto} se muestra el circuito completo bajo análisis. Se trata de un regulador tipo \textit{Flyback} aislado utilizdo a nivel industrial ya que posee múltiples salidas y los componentes magnéticos que lo conforman son económicos.\\
-\indent Para realizar un análisis cualitativo del mismo, se puede considerar el cirucito simplificado de la Figura \ref{fig:cto_simple}, donde se reemplazó el rectificador por una tensión constante, y sólo se consideró una de las salidas.
+	En la Figura \ref{fig:cto} se muestra el circuito completo bajo análisis. Se trata de un regulador tipo \textit{Flyback} aislado utilizado a nivel industrial ya que posee múltiples salidas y los componentes magnéticos que lo conforman son económicos.\\
+\indent Para realizar un análisis cualitativo del mismo, se puede considerar el circuito simplificado de la Figura \ref{fig:cto_simple}, donde se reemplazó el rectificador por una tensión constante, y sólo se consideró una de las salidas.
 
 \HgraficarEPS{0.5}{fly_simple}{Circuito simplificado.}{fig:cto_simple}
 
 \begin{itemize}
-	\item \textcolor{blue}{\textbf{Primer ciclo:}} $V_{GS}=\SI{12}{\volt}$ (llave cerrada) el MOSFET se encuentra en conducción, por lo que $L_1$ se carga e induce una tensión en $L_2$, de polaridad inversa según la notación de los bornes homólogos. Esto hace que el diodo $D$ esté en inversa y por ende no circula corriente por la malla de $L_2$. En esta parte del ciclo ambos núcleos almacenan energía.
+	\item \textcolor{blue}{\textbf{Primer ciclo:}} $V_{GS}=\SI{12}{\volt}$ (llave cerrada) el MOSFET se encuentra en conducción, por lo que $L_1$ se carga e induce una tensión en $L_2$, de polaridad inversa según la notación de los bornes homólogos. Esto hace que el diodo $D$ esté en inversa y por ende no circule corriente por la malla de $L_2$. En esta parte del ciclo ambos núcleos almacenan energía.
 
 	\item \textcolor{red}{\textbf{Segundo ciclo:}} $V_{GS} = \SI{0}{\volt}$ (llave abierta) la tensión en $L_1$ se inveirte para contrarrestar el cambio abrupto de corriente, por lo que también se invierte la polaridad en $L_2$, pero la corriente en $L_1$ será nula por estar el MOSFET en corte.
 		En este ciclo $L_2$ se descarga con el fin de cargar al capacitor $C_S$, el cuál se encarga de entregar la tensión de salida. A su vez se sabe que el circuito está operando en modo discontinuo, por lo que $L_2$ alcanza a descargase por completo en este ciclo.
