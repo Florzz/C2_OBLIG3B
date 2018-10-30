@@ -16,10 +16,7 @@ En la Figura \ref{fig:cto} se muestra el circuito completo bajo análisis. Se tr
 \end{itemize}
 
 
-Asimismo se debe destacar que $L_1$ y $L_2$ no conforman un transformador sino que son dos inductores porque no circula corriente por ambos inductores simultáneamente.
-
-
-En la Figura \ref{fig:esq} se muestra el esquema de simulación, siendo las corrientes y tensiones más relevantes las que se muestran en \ref{fig:transitorio}{ y \ref{fig:permanente}.
+	Asimismo se debe destacar que $L_1$ y $L_2$ no conforman un transformador sino que son dos inductores porque no circula corriente por ambos inductores simultáneamente.
 
 \begin{figure}[H]
 	\centering
@@ -27,6 +24,16 @@ En la Figura \ref{fig:esq} se muestra el esquema de simulación, siendo las corr
 	\caption{Circuito bajo análisis con \textit{PSpice}.}
 	\label{fig:esq}
 \end{figure}
+
+	En la Figura \ref{fig:esq} se muestra el esquema de simulación, siendo las corrientes y tensiones más relevantes las que se muestran en \ref{fig:transitorio}{ y \ref{fig:permanente}. Se consideró como señal de entrada la máxima posible, \SI{220}{\volt} @ \SI{50}{\hertz}. Por otra parte la señal de pulso elegida posee un ciclo de trabajo \num{0,5} y frecuencia de conmutación de \SI{100}{\kilo\hertz}. La simulación se realizó desde $t=0$ hasta \SI{10}{\milli\second} observando que luego de \SI{5}{\milli\second} se logra la estabilización del circuito. Las tensiones de salida obtenidas resultaron de aproximadamente \SI{10.5}{\volt} y \SI{25}{\volt}.
+	A su vez como toda fuente conmutada la tensión de salida presenta rizado, el cuál puede aprecierse con más detalle en las Figuras \ref{fig:permanente}, siendo el valor de rizado para cada caso:
+	$$\Delta V_{o1} \simeq \SI{88}{\milli\volt} $$
+	$$ \Delta V_{o2} \simeq \SI{200}{\milli\volt} $$
+
+	Se corrobora que el conversor se encuentra operando en modo discontinuo con $D=\num{0,5}$ debido a las formas de onda de la corriente en $L_{12}$, $T>t_{carga}+t_{descarga}$, es decir que el inductor se descarga por completo en cada ciclo. El modo discontinuo también se evidencia en la forma de tensión de \textit{drain} del MOSFET (nodo de conmutación), aunque no se logre apreciar en el gráfico posee la forma \ref{fig:v_drain}
+
+
+\HgraficarPNG{0.3}{v_drain}{Tensión de \textit{drain}}{fig:v_drain}
 
 
 \begin{figure}[H]
