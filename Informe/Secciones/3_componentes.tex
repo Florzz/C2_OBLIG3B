@@ -13,7 +13,7 @@
 	\end{align*}
 
 	Según la hoja de datos del \texttt{1N5811}, la corriente máxima de operación es \SI{6}{\ampere}, por lo que dicho modelo resulta adecuado para $D_1$, pero no para $D_2$. Se debe entrontrar un reemplazo que soporte una corriente mayor a \SI{9}{\ampere}. 	Buscando en hojas de datos, se encontró el modelo \texttt{1N5825} que soporta hasta \SI{15}{\ampere}.
-\Flor{El original era Fast recovery, pero el reemplazo no. No encontré uno Fast que soporte más que 6A}	
+%\Flor{El original era Fast recovery, pero el reemplazo no. No encontré uno Fast que soporte más que 6A}	
 
 
 	Con respecto al transistor MOSFET, se debe considerar la velocidada de conmutación y corriente que debe manejar. Para este diseño, la frecuencia de conmutación es de $\SI{100}{\kilo\hertz} \implies t_{on} = t_{off} = t = \SI{5}{\micro\second}$. A partir de la hoja de datos del \texttt{MTH5N100} se obtiene que 
